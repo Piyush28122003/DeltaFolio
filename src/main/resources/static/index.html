@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Manager - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">P</div>
+                <span class="logo-text">Portfolio</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="dashboard"> Dashboard</a></li>
+                    <li><a href="#" class="nav-link" data-page="holdings"> Holdings</a></li>
+                    <li><a href="#" class="nav-link" data-page="performance">Performance</a></li>
+                    <li><a href="#" class="nav-link" data-page="chatbot"> AI Assistant</a></li>
+                    <li><a href="#" class="nav-link" data-page="settings"> Settings</a></li>
+                    <li><a href="#" class="nav-link" onclick="handleLogout()" style="color: #ff6b6b;">🚪 Logout</a></li>
+                </ul>
+            </nav>
+            <div class="top-right-actions">
+                <span id="welcomeMessage" style="color: #4c1d95; font-weight: 600;"></span>
+                <div class="user-avatar" id="userAvatar">N</div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard" class="page active">
+                <header class="page-header">
+                    <div>
+                        <h1>Portfolio Dashboard</h1>
+                        <p class="page-header-subtitle">Welcome back! Here's your portfolio overview.</p>
+                    </div>
+                </header>
+
+                <!-- Portfolio Summary Cards -->
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Total Portfolio Value</h3>
+                        <p class="value" id="totalValue">$0.00</p>
+                        <p class="card-meta" id="totalValueMeta">+0.00% vs. last period</p>
+                        <div class="card-icon">💰</div>
+                    </div>
+                    <div class="card">
+                        <h3>Total Cost</h3>
+                        <p class="value" id="totalCost">$0.00</p>
+                        <p class="card-meta">Baseline invested amount</p>
+                        <div class="card-icon">💳</div>
+                    </div>
+                    <div class="card">
+                        <h3>Profit/Loss</h3>
+                        <p class="value" id="profitLoss">$0.00</p>
+                        <p class="card-meta" id="profitLossMeta">Since inception</p>
+                        <div class="card-icon">📈</div>
+                    </div>
+                    <div class="card">
+                        <h3>Profit/Loss %</h3>
+                        <p class="value" id="profitLossPercent">0.00%</p>
+                        <p class="card-meta">YTD return</p>
+                        <div class="card-icon">📊</div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <h3>Portfolio Growth</h3>
+                        <canvas id="portfolioGrowthChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Asset Allocation</h3>
+                        <canvas id="assetAllocationChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Top Holdings Table -->
+                <div class="table-container">
+                    <h3>Top Holdings</h3>
+                    <table id="holdingsTable">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Company</th>
+                                <th>Quantity</th>
+                                <th>Buy Price</th>
+                                <th>Current Price</th>
+                                <th>Current Value</th>
+                                <th>P/L</th>
+                                <th>P/L %</th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdingsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Holdings Page -->
+            <div id="holdings" class="page">
+                <header class="page-header">
+                    <h1>Holdings</h1>
+                    <button class="btn btn-primary" onclick="showBuyStockModal()">Buy Stock</button>
+                </header>
+
+                <div class="table-container">
+                    <table id="allHoldingsTable">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Company</th>
+                                <th>Quantity</th>
+                                <th>Buy Price</th>
+                                <th>Buy Date</th>
+                                <th>Current Price</th>
+                                <th>Current Value</th>
+                                <th>P/L</th>
+                                <th>P/L %</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="allHoldingsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Performance Page -->
+            <div id="performance" class="page">
+                <header class="page-header">
+                    <h1>Performance & Risk Analysis</h1>
+                </header>
+
+                <div class="risk-analysis">
+                    <div class="card">
+                        <h3>Risk Category</h3>
+                        <p class="value" id="riskCategory">-</p>
+                    </div>
+                    <div class="card">
+                        <h3>Volatility Score</h3>
+                        <p class="value" id="volatilityScore">-</p>
+                    </div>
+                    <div class="card">
+                        <h3>Diversification Score</h3>
+                        <p class="value" id="diversificationScore">-</p>
+                    </div>
+                    <div class="card">
+                        <h3>Max Loss Tolerance</h3>
+                        <p class="value" id="maxLossTolerance">-</p>
+                    </div>
+                </div>
+
+                <div class="risk-details">
+                    <h3>Risk Analysis Details</h3>
+                    <div id="riskDetails"></div>
+                </div>
+            </div>
+
+            <!-- Chatbot Page -->
+            <div id="chatbot" class="page">
+                <header class="page-header">
+                    <h1>AI Portfolio Assistant</h1>
+                </header>
+
+                <div class="chatbot-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <p>👋 Hello! I'm your AI Portfolio Assistant. I can help you with portfolio analysis, risk assessment, and stock recommendations. How can I assist you today?</p>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
+                        <button class="btn btn-primary" onclick="sendChatMessage()">Send</button>
+                    </div>
+                    <div class="quick-actions" id="quickActions">
+                        <button class="btn btn-secondary" onclick="sendQuickAction('What is my portfolio value?')">💰 Portfolio Value</button>
+                        <button class="btn btn-secondary" onclick="sendQuickAction('How risky is my portfolio?')">⚠️ Risk Analysis</button>
+                        <button class="btn btn-secondary" onclick="sendQuickAction('Recommend stocks to buy')">📈 Recommend Buy</button>
+                        <button class="btn btn-secondary" onclick="sendQuickAction('Suggest stocks to sell')">📉 Suggest Sell</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div id="settings" class="page">
+                <header class="page-header">
+                    <h1>Settings</h1>
+                </header>
+
+                <div class="settings-container">
+                    <div class="card">
+                        <h3>User Information</h3>
+                        <div id="userInfo"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Bank Account</h3>
+                        <div id="bankAccountInfo"></div>
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-primary" onclick="showBankAccountModal()" id="createAccountBtn" style="display: none;">Create Bank Account</button>
+                            <button class="btn btn-secondary" onclick="showBankAccountModal()" id="editAccountBtn" style="display: none;">Edit Account Details</button>
+                            <button class="btn btn-primary" onclick="showDepositModal()" id="depositBtn" style="display: none; margin-left: 10px;">Deposit Money</button>
+                            <button class="btn btn-secondary" onclick="showWithdrawModal()" id="withdrawBtn" style="display: none; margin-left: 10px;">Withdraw Money</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Chatbot Icon -->
+    <button class="chatbot-fab" onclick="openChatbotFromFab()">
+        <span>💬</span>
+    </button>
+
+    <!-- Buy Stock Modal -->
+    <div id="buyStockModal" class="modal" onclick="if(event.target === this) closeBuyStockModal()">
+        <div class="modal-content">
+            <span class="close" onclick="closeBuyStockModal()">&times;</span>
+            <h2>Buy Stock</h2>
+            <div id="currentBalanceInfo" style="background: #f0f0f0; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px;">
+                <strong>Available Balance:</strong> <span id="availableBalance">Loading...</span>
+            </div>
+            <form id="buyStockForm" onsubmit="buyStock(event)">
+                <div class="form-group">
+                    <label for="stockSymbol">Stock Symbol:</label>
+                    <input type="text" id="stockSymbol" required placeholder="e.g., AAPL">
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="buyPrice">Buy Price:</label>
+                    <input type="number" id="buyPrice" step="0.01" min="0.01" required>
+                </div>
+                <div id="totalCostInfo" style="background: #e8f4f8; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; display: none;">
+                    <strong>Total Cost:</strong> <span id="totalCostDisplay">$0.00</span>
+                </div>
+                <button type="submit" class="btn btn-primary">Buy</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bank Account Modal -->
+    <div id="bankAccountModal" class="modal" onclick="if(event.target === this) closeBankAccountModal()">
+        <div class="modal-content">
+            <span class="close" onclick="closeBankAccountModal()">&times;</span>
+            <h2 id="bankAccountModalTitle">Create Bank Account</h2>
+            <form id="bankAccountForm" onsubmit="saveBankAccount(event)">
+                <div class="form-group">
+                    <label for="accountNumber">Account Number:</label>
+                    <input type="text" id="accountNumber" required minlength="8" maxlength="50" placeholder="Enter account number">
+                </div>
+                <div class="form-group">
+                    <label for="bankName">Bank Name:</label>
+                    <input type="text" id="bankName" required maxlength="100" placeholder="e.g., HSBC Bank">
+                </div>
+                <div class="form-group">
+                    <label for="accountType">Account Type:</label>
+                    <select id="accountType" required>
+                        <option value="CHECKING">Checking</option>
+                        <option value="SAVINGS">Savings</option>
+                        <option value="BUSINESS">Business</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Deposit Modal -->
+    <div id="depositModal" class="modal" onclick="if(event.target === this) closeDepositModal()">
+        <div class="modal-content">
+            <span class="close" onclick="closeDepositModal()">&times;</span>
+            <h2>Deposit Money</h2>
+            <form id="depositForm" onsubmit="depositMoney(event)">
+                <div class="form-group">
+                    <label for="depositAmount">Amount:</label>
+                    <input type="number" id="depositAmount" step="0.01" min="0.01" required placeholder="Enter amount">
+                </div>
+                <div class="form-group">
+                    <label for="depositDescription">Description (Optional):</label>
+                    <input type="text" id="depositDescription" placeholder="e.g., Initial deposit">
+                </div>
+                <button type="submit" class="btn btn-primary">Deposit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Withdraw Modal -->
+    <div id="withdrawModal" class="modal" onclick="if(event.target === this) closeWithdrawModal()">
+        <div class="modal-content">
+            <span class="close" onclick="closeWithdrawModal()">&times;</span>
+            <h2>Withdraw Money</h2>
+            <div id="withdrawBalanceInfo" style="background: #f0f0f0; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px;">
+                <strong>Available Balance:</strong> <span id="withdrawAvailableBalance">Loading...</span>
+            </div>
+            <form id="withdrawForm" onsubmit="withdrawMoney(event)">
+                <div class="form-group">
+                    <label for="withdrawAmount">Amount:</label>
+                    <input type="number" id="withdrawAmount" step="0.01" min="0.01" required placeholder="Enter amount">
+                </div>
+                <div class="form-group">
+                    <label for="withdrawDescription">Description (Optional):</label>
+                    <input type="text" id="withdrawDescription" placeholder="e.g., Cash withdrawal">
+                </div>
+                <button type="submit" class="btn btn-primary">Withdraw</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

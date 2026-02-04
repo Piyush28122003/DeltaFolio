@@ -1,0 +1,13 @@
+package com.delta.Deltafolio;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DeltafolioApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DeltafolioApplication.class, args);
+	}
+
+}

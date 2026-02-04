@@ -1,5 +1,14 @@
 package com.delta.Deltafolio.service;
 
+import com.delta.Deltafolio.dto.ChatbotRequestDTO;
+import com.delta.Deltafolio.dto.ChatbotResponseDTO;
+import com.delta.Deltafolio.dto.PortfolioDTO;
+import com.delta.Deltafolio.repository.InvestmentRepository;
+import com.delta.Deltafolio.repository.RiskProfileRepository;
+import com.delta.Deltafolio.model.RiskProfile;
+import com.delta.Deltafolio.util.Constants;
+import com.delta.Deltafolio.model.Investment;
+import com.delta.Deltafolio.util.RecommendationEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

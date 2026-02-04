@@ -1,5 +1,8 @@
 package com.delta.Deltafolio.controller;
 
+import com.delta.Deltafolio.dto.ChatbotRequestDTO;
+import com.delta.Deltafolio.dto.ChatbotResponseDTO;
+import com.delta.Deltafolio.service.ChatbotService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

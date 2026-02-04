@@ -1,11 +1,25 @@
 package com.delta.Deltafolio.service;
 
+<<<<<<< HEAD
 import com.delta.Deltafolio.dto.*;
 import com.delta.Deltafolio.exception.ResourceNotFoundException;
 import com.delta.Deltafolio.model.User;
 import com.delta.Deltafolio.model.BankAccount;
 import com.delta.Deltafolio.repository.BankAccountRepository;
 import com.delta.Deltafolio.repository.UserRepository;
+=======
+import com.delta.Deltafolio.dto.BankAccountDTO;
+import com.delta.Deltafolio.dto.BankAccountRequestDTO;
+import com.delta.Deltafolio.dto.LoginRequestDTO;
+import com.delta.Deltafolio.dto.LoginResponseDTO;
+import com.delta.Deltafolio.dto.SignupRequestDTO;
+import com.delta.Deltafolio.dto.UserDTO;
+import com.delta.Deltafolio.model.BankAccount;
+import com.delta.Deltafolio.model.User;
+import com.delta.Deltafolio.repository.BankAccountRepository;
+import com.delta.Deltafolio.repository.UserRepository;
+import com.delta.Deltafolio.exception.ResourceNotFoundException;
+>>>>>>> eba600fe34aaaadb0dde11129eb7b11546e8c3e6
 import com.delta.Deltafolio.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -27,10 +41,17 @@ public class UserService {
     private final JwtUtil jwtUtil;
     
     @Autowired
+<<<<<<< HEAD
     public UserService(UserRepository userRepository,
                        BankAccountRepository bankAccountRepository,
                        PasswordEncoder passwordEncoder,
                        JwtUtil jwtUtil) {
+=======
+    public UserService(UserRepository userRepository, 
+                      BankAccountRepository bankAccountRepository,
+                      PasswordEncoder passwordEncoder,
+                      JwtUtil jwtUtil) {
+>>>>>>> eba600fe34aaaadb0dde11129eb7b11546e8c3e6
         this.userRepository = userRepository;
         this.bankAccountRepository = bankAccountRepository;
         this.passwordEncoder = passwordEncoder;
@@ -188,7 +209,11 @@ public class UserService {
                 account.setUser(user);
                 account.setAccountNumber("ACC" + System.currentTimeMillis());
                 account.setBankName("HSBC Bank");
+<<<<<<< HEAD
                 account.setCurrentBalance(BigDecimal.ZERO);
+=======
+                account.setCurrentBalance(java.math.BigDecimal.ZERO);
+>>>>>>> eba600fe34aaaadb0dde11129eb7b11546e8c3e6
                 return bankAccountRepository.save(account);
             });
     }

@@ -1,9 +1,9 @@
 package com.delta.Deltafolio.util;
 
 
-import com.delta.Deltafolio.model.Investment;
-import com.delta.Deltafolio.model.RiskProfile;
-import com.delta.Deltafolio.model.Stock;
+import com.delta.Deltafolio.entity.Investment;
+import com.delta.Deltafolio.entity.RiskProfile;
+import com.delta.Deltafolio.entity.Stock;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

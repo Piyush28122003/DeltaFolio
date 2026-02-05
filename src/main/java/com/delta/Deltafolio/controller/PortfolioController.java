@@ -1,7 +1,7 @@
 package com.delta.Deltafolio.controller;
 
 import com.delta.Deltafolio.dto.PortfolioDTO;
-import com.delta.Deltafolio.model.Investment;
+import com.delta.Deltafolio.entity.Investment;
 import com.delta.Deltafolio.service.PortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

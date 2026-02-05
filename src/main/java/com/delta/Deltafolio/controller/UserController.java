@@ -5,7 +5,7 @@ import com.delta.Deltafolio.dto.LoginResponseDTO;
 import com.delta.Deltafolio.dto.SignupRequestDTO;
 import com.delta.Deltafolio.dto.UserDTO;
 import com.delta.Deltafolio.service.UserService;
-import com.delta.Deltafolio.model.*;
+import com.delta.Deltafolio.entity.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

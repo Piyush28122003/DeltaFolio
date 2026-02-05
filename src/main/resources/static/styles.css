@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -52,12 +51,12 @@ body {
     justify-content: center;
     color: #ffffff;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .logo-text {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
     color: #111827;
 }
 
@@ -79,9 +78,9 @@ nav ul li {
     color: #4b5563;
     text-decoration: none;
     border-radius: 999px;
-    font-size: 14px;
+    font-size: 19px;
     font-weight: 500;
-    transition: background 0.3s, color 0.3s, transform 0.15s;
+    transition: scale(0.5)
 }
 
 .nav-link:hover,
@@ -155,6 +154,73 @@ nav ul li {
     font-size: 14px;
 }
 
+/* Market Indices - Sensex-style ticker */
+.market-indices-section {
+    margin-bottom: 28px;
+}
+
+.market-indices-title {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.market-indices-ticker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.market-index-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    min-width: 180px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #6366f1;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.market-index-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.market-index-name {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.market-index-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+}
+
+.market-index-change {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.market-index-change.positive {
+    color: #059669;
+}
+
+.market-index-change.negative {
+    color: #dc2626;
+}
+
+.market-indices-loading {
+    color: #6b7280;
+    font-size: 14px;
+}
+
 /* Summary Cards */
 .summary-cards {
     display: grid;
@@ -221,8 +287,30 @@ nav ul li {
 }
 
 .chart-container h3 {
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 4px;
+    color: #111827;
+}
+
+.chart-subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.chart-wrapper {
+    position: relative;
+    min-height: 280px;
+    height: 320px;
+}
+
+.chart-container-wide .chart-wrapper {
+    min-height: 240px;
+    height: clamp(240px, 40vh, 380px);
+}
+
+.chart-wrapper-doughnut {
+    min-height: 320px;
+    height: 380px;
 }
 
 /* Tables */
@@ -301,6 +389,15 @@ tr:hover {
     background: #5a6268;
 }
 
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
 /* Chatbot */
 .chatbot-container {
     background: white;
@@ -360,6 +457,20 @@ tr:hover {
 }
 
 /* Risk Analysis */
+.risk-intro {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.card-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
 .risk-analysis {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -375,7 +486,51 @@ tr:hover {
 }
 
 .risk-details h3 {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
+}
+
+.risk-details-intro {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.risk-details .risk-section {
+    margin-bottom: 24px;
+}
+
+.risk-details .risk-section:last-child {
+    margin-bottom: 0;
+}
+
+.risk-details .risk-section h4 {
+    font-size: 15px;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.risk-details .risk-section .section-desc {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.risk-details .risk-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #374151;
+}
+
+.risk-details .risk-section ul {
+    margin: 8px 0 0 20px;
+}
+
+.risk-details .risk-section ul li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #374151;
 }
 
 /* Modal */
@@ -414,6 +569,18 @@ tr:hover {
     color: #333;
 }
 
+.modal-confirm p {
+    margin: 16px 0 24px;
+    color: #4b5563;
+    font-size: 15px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -437,6 +604,92 @@ tr:hover {
 .form-group select {
     background-color: white;
     cursor: pointer;
+}
+
+/* News */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.news-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.news-card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #e5e7eb;
+}
+
+.news-card-body {
+    padding: 16px;
+}
+
+.news-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-card-description {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.news-card-meta {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 12px;
+}
+
+.news-card-link {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4c6fff;
+    text-decoration: none;
+}
+
+.news-card-link:hover {
+    text-decoration: underline;
+}
+
+.news-loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #6b7280;
+    padding: 40px;
+}
+
+.news-error {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #dc3545;
+    padding: 40px;
 }
 
 /* Settings */
@@ -471,6 +724,117 @@ tr:hover {
     box-shadow: 0 16px 35px rgba(79, 70, 229, 0.5);
 }
 
+/* Toast Notifications - Top Right */
+.toast-container {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    pointer-events: none;
+}
+
+.toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: white;
+    border-left: 4px solid #6366f1;
+    pointer-events: auto;
+    animation: toastSlideIn 0.35s ease-out;
+}
+
+.toast.success {
+    border-left-color: #10b981;
+}
+
+.toast.success .toast-icon {
+    color: #10b981;
+}
+
+.toast.error {
+    border-left-color: #ef4444;
+}
+
+.toast.error .toast-icon {
+    color: #ef4444;
+}
+
+.toast.warning {
+    border-left-color: #f59e0b;
+}
+
+.toast.warning .toast-icon {
+    color: #f59e0b;
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    font-size: 20px;
+    margin-top: 1px;
+}
+
+.toast-content {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #374151;
+}
+
+.toast-close {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: #9ca3af;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    transition: color 0.2s, background 0.2s;
+}
+
+.toast-close:hover {
+    color: #6b7280;
+    background: #f3f4f6;
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toast.hiding {
+    animation: toastSlideOut 0.3s ease-in forwards;
+}
+
+@keyframes toastSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .main-content {
@@ -480,5 +844,10 @@ tr:hover {
     .charts-row {
         grid-template-columns: 1fr;
     }
+    
+    .toast-container {
+        right: 16px;
+        left: 16px;
+        max-width: none;
+    }
 }
-

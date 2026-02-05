@@ -3,7 +3,9 @@ package com.delta.Deltafolio.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import org.apache.catalina.User;
+
+import com.delta.Deltafolio.model.User;
+
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

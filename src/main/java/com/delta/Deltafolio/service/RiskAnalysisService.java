@@ -8,7 +8,7 @@ import com.delta.Deltafolio.repository.InvestmentRepository;
 import com.delta.Deltafolio.repository.RiskProfileRepository;
 import com.delta.Deltafolio.repository.UserRepository;
 import com.delta.Deltafolio.util.RiskCalculator;
-import org.apache.catalina.User;
+import com.delta.Deltafolio.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +38,7 @@ public class RiskAnalysisService {
      * Analyze risk for a user
      */
     public RiskAnalysisDTO analyzeRisk(Long userId) {
-        User user = userRepository.findById(userId)
+        User user = (User) userRepository.findById(userId)
             .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
         
         List<Investment> investments = investmentRepository.findByUserId(userId);
@@ -54,7 +54,7 @@ public class RiskAnalysisService {
                     volatilityScore, diversificationScore
                 );
                 RiskProfile newProfile = new RiskProfile();
-                newProfile.setUser(user);
+                newProfile.setUser((User) user);
                 newProfile.setRiskCategory(category);
                 newProfile.setVolatilityScore(volatilityScore);
                 newProfile.setDiversificationScore(diversificationScore);

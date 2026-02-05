@@ -3,8 +3,7 @@ package com.delta.Deltafolio.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
-import org.apache.catalina.User;
-
+import com.delta.Deltafolio.model.User;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

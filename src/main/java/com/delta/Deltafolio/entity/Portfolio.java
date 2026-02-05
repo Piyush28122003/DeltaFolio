@@ -1,10 +1,8 @@
-package com.delta.Deltafolio.model;
+package com.delta.Deltafolio.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-
-import com.delta.Deltafolio.model.User;
 
 
 import java.time.LocalDateTime;

@@ -1,6 +1,6 @@
 package com.delta.Deltafolio.repository;
 
-import com.delta.Deltafolio.model.RiskProfile;
+import com.delta.Deltafolio.entity.RiskProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

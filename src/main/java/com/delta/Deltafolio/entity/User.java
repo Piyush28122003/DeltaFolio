@@ -1,4 +1,4 @@
-package com.delta.Deltafolio.model;
+package com.delta.Deltafolio.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

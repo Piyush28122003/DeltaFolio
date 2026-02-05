@@ -2,13 +2,13 @@ package com.delta.Deltafolio.service;
 
 import com.delta.Deltafolio.dto.RiskAnalysisDTO;
 import com.delta.Deltafolio.exception.ResourceNotFoundException;
-import com.delta.Deltafolio.model.Investment;
-import com.delta.Deltafolio.model.RiskProfile;
+import com.delta.Deltafolio.entity.Investment;
+import com.delta.Deltafolio.entity.RiskProfile;
 import com.delta.Deltafolio.repository.InvestmentRepository;
 import com.delta.Deltafolio.repository.RiskProfileRepository;
 import com.delta.Deltafolio.repository.UserRepository;
 import com.delta.Deltafolio.util.RiskCalculator;
-import com.delta.Deltafolio.model.User;
+import com.delta.Deltafolio.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

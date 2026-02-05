@@ -54,7 +54,7 @@ public class RiskAnalysisService {
                     volatilityScore, diversificationScore
                 );
                 RiskProfile newProfile = new RiskProfile();
-                newProfile.setUser((org.apache.catalina.User) user);
+                newProfile.setUser((User) user);
                 newProfile.setRiskCategory(category);
                 newProfile.setVolatilityScore(volatilityScore);
                 newProfile.setDiversificationScore(diversificationScore);

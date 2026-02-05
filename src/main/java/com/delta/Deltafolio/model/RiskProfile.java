@@ -3,11 +3,7 @@ package com.delta.Deltafolio.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
-<<<<<<< HEAD
-=======
-import org.apache.catalina.User;
-
->>>>>>> f96157996631531800a5a9e14c505ea991a31203
+import com.delta.Deltafolio.model.User;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

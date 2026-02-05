@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f96157996631531800a5a9e14c505ea991a31203
 import java.time.LocalDateTime;
 
 @Entity

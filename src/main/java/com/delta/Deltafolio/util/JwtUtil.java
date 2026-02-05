@@ -1,5 +1,4 @@
-// src/main/java/com/delta/Deltafolio/util/JwtUtil.java
-package com.delta.Deltafolio.util;
+package com.yourorg.portfolio.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -37,25 +36,17 @@ public class JwtUtil {
 
     private String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(subject)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .claims(claims)
+                .subject(subject)
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getSigningKey())
                 .compact();
     }
 
     public Long getUserIdFromToken(String token) {
         Claims claims = getAllClaimsFromToken(token);
-        Object idObj = claims.get("userId");
-        if (idObj instanceof Number) {
-            return ((Number) idObj).longValue();
-        }
-        try {
-            return Long.valueOf(String.valueOf(idObj));
-        } catch (Exception e) {
-            return null;
-        }
+        return claims.get("userId", Long.class);
     }
 
     public String getUsernameFromToken(String token) {
@@ -72,11 +63,11 @@ public class JwtUtil {
     }
 
     private Claims getAllClaimsFromToken(String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(getSigningKey())
+        return Jwts.parser()
+                .verifyWith(getSigningKey())
                 .build()
-                .parseClaimsJws(token)
-                .getBody();
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     private Boolean isTokenExpired(String token) {
@@ -86,6 +77,7 @@ public class JwtUtil {
 
     public Boolean validateToken(String token, String username) {
         final String tokenUsername = getUsernameFromToken(token);
-        return (tokenUsername != null && tokenUsername.equals(username) && !isTokenExpired(token));
+        return (tokenUsername.equals(username) && !isTokenExpired(token));
     }
 }
+

@@ -1,5 +1,9 @@
 package com.delta.Deltafolio.model;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f96157996631531800a5a9e14c505ea991a31203
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
@@ -7,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "stocks")
 public class Stock {
+<<<<<<< HEAD
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,29 +43,78 @@ public class Stock {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
     
+=======
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true, nullable = false, length = 10)
+    @NotBlank(message = "Stock symbol is required")
+    private String symbol;
+
+    @Column(name = "company_name", nullable = false, length = 200)
+    @NotBlank(message = "Company name is required")
+    private String companyName;
+
+    @Column(length = 100)
+    private String sector;
+
+    @Column(length = 100)
+    private String industry;
+
+    @Column(length = 50)
+    private String exchange;
+
+    @Column(length = 10)
+    private String currency = "USD";
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+>>>>>>> f96157996631531800a5a9e14c505ea991a31203
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> f96157996631531800a5a9e14c505ea991a31203
     @PreUpdate
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
+<<<<<<< HEAD
     
     // Constructors
     public Stock() {}
     
+=======
+
+    // Constructors
+    public Stock() {}
+
+>>>>>>> f96157996631531800a5a9e14c505ea991a31203
     public Stock(String symbol, String companyName) {
         this.symbol = symbol;
         this.companyName = companyName;
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> f96157996631531800a5a9e14c505ea991a31203
     // Getters and Setters
     public Long getId() {
         return id;
     }
+<<<<<<< HEAD
     
     public void setId(Long id) {
         this.id = id;
@@ -126,6 +180,73 @@ public class Stock {
         return updatedAt;
     }
     
+=======
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
+    }
+
+    public String getIndustry() {
+        return industry;
+    }
+
+    public void setIndustry(String industry) {
+        this.industry = industry;
+    }
+
+    public String getExchange() {
+        return exchange;
+    }
+
+    public void setExchange(String exchange) {
+        this.exchange = exchange;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+>>>>>>> f96157996631531800a5a9e14c505ea991a31203
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }

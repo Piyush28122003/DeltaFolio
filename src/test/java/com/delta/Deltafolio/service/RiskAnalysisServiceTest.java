@@ -2,7 +2,7 @@ package com.delta.Deltafolio.service;
 
 import com.delta.Deltafolio.dto.RiskAnalysisDTO;
 import com.delta.Deltafolio.exception.ResourceNotFoundException;
-import com.delta.Deltafolio.model.*;
+import com.delta.Deltafolio.entity.*;
 import com.delta.Deltafolio.repository.InvestmentRepository;
 import com.delta.Deltafolio.repository.RiskProfileRepository;
 import com.delta.Deltafolio.repository.UserRepository;

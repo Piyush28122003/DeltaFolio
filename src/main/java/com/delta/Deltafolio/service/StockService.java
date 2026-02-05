@@ -1,7 +1,7 @@
 package com.delta.Deltafolio.service;
 
 import com.delta.Deltafolio.dto.StockPriceDTO;
-import com.delta.Deltafolio.model.Stock;
+import com.delta.Deltafolio.entity.Stock;
 import com.delta.Deltafolio.repository.StockRepository;
 import com.delta.Deltafolio.exception.ResourceNotFoundException;
 import org.slf4j.Logger;

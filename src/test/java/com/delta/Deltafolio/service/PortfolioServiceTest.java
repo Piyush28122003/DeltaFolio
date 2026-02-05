@@ -2,7 +2,7 @@ package com.delta.Deltafolio.service;
 
 import com.delta.Deltafolio.dto.StockPriceDTO;
 import com.delta.Deltafolio.exception.ResourceNotFoundException;
-import com.delta.Deltafolio.model.*;
+import com.delta.Deltafolio.entity.*;
 import com.delta.Deltafolio.repository.InvestmentRepository;
 import com.delta.Deltafolio.repository.PortfolioRepository;
 import com.delta.Deltafolio.repository.StockRepository;

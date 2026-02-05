@@ -1,7 +1,7 @@
 package com.delta.Deltafolio.dto;
 
 
-import com.delta.Deltafolio.model.RiskProfile;
+import com.delta.Deltafolio.entity.RiskProfile;
 
 import java.math.BigDecimal;
 import java.util.List;

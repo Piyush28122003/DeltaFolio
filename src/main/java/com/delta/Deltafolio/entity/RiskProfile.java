@@ -1,9 +1,9 @@
-package com.delta.Deltafolio.model;
+package com.delta.Deltafolio.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
-import com.delta.Deltafolio.model.User;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

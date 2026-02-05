@@ -1,6 +1,6 @@
 package com.delta.Deltafolio.repository;
 
-import com.delta.Deltafolio.model.Investment;
+import com.delta.Deltafolio.entity.Investment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

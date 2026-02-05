@@ -2,10 +2,10 @@ package com.delta.Deltafolio.service;
 
 import com.delta.Deltafolio.dto.PortfolioDTO;
 import com.delta.Deltafolio.dto.StockPriceDTO;
-import com.delta.Deltafolio.model.Investment;
-import com.delta.Deltafolio.model.Portfolio;
-import com.delta.Deltafolio.model.Stock;
-import com.delta.Deltafolio.model.User;
+import com.delta.Deltafolio.entity.Investment;
+import com.delta.Deltafolio.entity.Portfolio;
+import com.delta.Deltafolio.entity.Stock;
+import com.delta.Deltafolio.entity.User;
 import com.delta.Deltafolio.repository.InvestmentRepository;
 import com.delta.Deltafolio.repository.PortfolioRepository;
 import com.delta.Deltafolio.repository.StockRepository;

@@ -1,6 +1,6 @@
 package com.delta.Deltafolio.repository;
 
-import com.delta.Deltafolio.model.Portfolio;
+import com.delta.Deltafolio.entity.Portfolio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

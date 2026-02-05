@@ -2,8 +2,8 @@ package com.delta.Deltafolio.service;
 
 import com.delta.Deltafolio.dto.*;
 import com.delta.Deltafolio.exception.ResourceNotFoundException;
-import com.delta.Deltafolio.model.BankAccount;
-import com.delta.Deltafolio.model.User;
+import com.delta.Deltafolio.entity.BankAccount;
+import com.delta.Deltafolio.entity.User;
 import com.delta.Deltafolio.repository.BankAccountRepository;
 import com.delta.Deltafolio.repository.UserRepository;
 import com.delta.Deltafolio.util.JwtUtil;
@@ -24,7 +24,6 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
